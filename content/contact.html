@@ -1,0 +1,11 @@
+---
+title: "Contact"
+menu: "main"
+weight: 2
+---
+<form id="contact-form" class="card" method="post" action="https://us-central1-js-physics-game.cloudfunctions.net/receiveMail">
+	<label>Name<input name="name" required type="text"></label>
+	<label>Email Address<input name="email" required type="email"></label>
+	<label>How can we help you<textarea name="message" required spellcheck="true" minlength="8" rows="8" cols="32"></textarea></label>
+	<input id="send-btn" class="btn" type="submit" value="Send">
+</form>
