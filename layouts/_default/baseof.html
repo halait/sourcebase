@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 		<link rel="stylesheet" href="/styles/main.css">
 		<link rel="icon" type="image/png" href="/images/icon.png">
 		<title>Sourcebase</title>
@@ -9,7 +10,7 @@
 		<meta name="description" content="Sourcebase creates high-quality online stores using the latest best practices and unique designs to help you grow your business.">
 	</head>
 	<body>
-		<div id="nav-bar">
+		<header>
 			<button id="header-menu-btn" aria-label="Open menu">
 				<svg viewBox="0 0 150 100" height="100%" xmlns="http://www.w3.org/2000/svg" stroke="#fff" stroke-width="16" alt="Main menu button">
 					<line x1="0" y1="10" x2="150" y2="10"></line>
@@ -23,22 +24,16 @@
 				{{ range .Site.Menus.main }}
 					<a class="nav-tab{{ if eq .Page.RelPermalink $.RelPermalink }} nav-tab-active{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Title }}</a>
 				{{ end }}
-				<!--
-				<li><a class="nav-tab" href="/portfolio/">Portfolio</a></li>
-				<li><a class="nav-tab" href="/contact/">Contact</a></li>
-				-->
 			</nav>
-		</div>
-		<div id="flex-body">
-			<div id="main">
-				{{ block "main" . }}{{ end }}
-			</div>
-			<div id="footer">
-				<address>
-					Email Address: <a href="mailto:vigress.info@gmail.com">vigress.info@gmail.com</a><br>
-					Phone Number: <a href="tel:+18734082693">1-873-408-2693</a>
-				</address>
-			</div>
+		</header>
+		<main>
+			{{ block "main" . }}{{ end }}
+		</main>
+		<div id="footer">
+			<address>
+				Email Address: <a href="mailto:vigress.info@gmail.com">vigress.info@gmail.com</a><br>
+				Phone Number: <a href="tel:+18734082693">1-873-408-2693</a>
+			</address>
 		</div>
 		<script src="/scripts/common.js"></script>
 	</body>

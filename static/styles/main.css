@@ -1,26 +1,26 @@
 * {
-	box-sizing: border-box;
 	font-family: sans-serif;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
 }
 body {
-	--brand-color: rgb(225, 50, 25);
-	/*--background-color: rgb(16, 143, 239);*/
-	--background-color: rgb(16, 64, 255);
+	/*--brand-color: rgb(225, 50, 25);*/
+	--brand-color: rgb(192, 48, 24);
+	--background-color: rgb(80, 90, 100);
 	--nav-bar-height: 2.5rem;
 	--horizontal-padding: 1rem;
-	--vertical-padding: 2rem;
 	--min-width: 15rem;
 	--max-width: 90rem;
 	min-width: var(--min-width);
-	line-height: 1.3;
-}
-h3, h4 {
-	color: initial;
+	line-height: 1.5;
+	background-color: var(--background-color);
+	margin: 0;
+
 }
 h3 {
-	margin: 0 0 8px 0;
+	color: #111;
+}
+h4 {
+	color: #222;
+	margin: 1em 0;
 }
 ul {
 	list-style-type: none;
@@ -28,7 +28,7 @@ ul {
 }
 li {
 	margin: 1em 0;
-	color: #222;
+	color: #444;
 }
 .flex-container {
 	display: flex;
@@ -36,16 +36,19 @@ li {
 	background-color: inherit;
 	justify-content: space-evenly;
 }
-.flex-container > li {
-	margin: 1.5rem 0;
+.card-content {
+	margin: 1rem 0 2rem;
 	flex: 1 1 0px;
+	font-family: "Roboto", sans-serif;
+	text-align: center;
 }
 .card {
-	padding: var(--horizontal-padding);
+	padding: 1.2rem;
 	border-radius: 8px;
 	background-color: #fff;
-	margin: 4rem 0;
-	box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.5);
+	margin: 4rem auto;
+	box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.75);
+	max-width: 32rem
 }
 .head-image {
 	max-width: 75%;
@@ -58,18 +61,24 @@ li {
 	margin: 0 auto 16px auto;
 	text-align: center;
 }
-#nav-bar {
+header {
 	height: var(--nav-bar-height);
-	position: fixed;
 	background: var(--brand-color);
 	color: #fff;
 	line-height: var(--nav-bar-height);
-	top: 0px;
-	width: 100%;
+	box-sizing: border-box;
 	min-width: var(--min-width);
 	padding: 0 var(--horizontal-padding);
-	z-index: 2;
 	box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+	transition: top 0.2s;
+}
+.hide-header {
+	top: calc(-1 * var(--nav-bar-height));
+	box-shadow: none;
 }
 #header-menu-btn {
 	height: 50%;
@@ -77,40 +86,30 @@ li {
 	background-color: inherit;
 	margin-right: 1em;
 }
-#flex-body {
-	width: 100%;
-	position: absolute;
-	top: var(--nav-bar-height);
-	min-height: calc(100vh - var(--nav-bar-height));
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	background-color: var(--background-color);
-}
-#main {
+main {
 	max-width: var(--max-width);
-	width: 100%;
 	margin: 0 auto;
-	padding: 0px var(--horizontal-padding);
+	padding: var(--nav-bar-height) var(--horizontal-padding) 0;
 }
 #footer {
 	padding: var(--horizontal-padding);
 	background-color: #fff;
 	bottom: 0px;
 }
-#hero-content {
+#hero {
 	overflow: hidden;
 	text-align: center;
-	font-size: 1.5em;
 	color: #fff;
 }
-#front-message {
+#hero-message {
+	font-family: "Roboto", sans-serif;
 	margin-top: var(--nav-bar-height);
-	font-size: inherit;
 }
 #main-img {
 	display: block;
-	width: min(80vh, 100%);
+	//width: min(80vh, 100%);
+	width: 100%;
+	max-width: 32rem;
 	height: auto;
 	margin: 0 auto;
 }
@@ -120,9 +119,9 @@ li {
 }
 #get-started-btn-bottom {
 	display: block;
-	width: 100%;
 	font-size: 1.5em;
 	margin: 4rem auto;
+	max-width: 32rem;
 }
 .header-nav {
 	position: fixed;
@@ -144,6 +143,7 @@ li {
 	text-decoration: none;
 	color: inherit;
 	padding: 0.5em 1em;
+	box-sizing: border-box;
 }
 .nav-tab:hover, .nav-tab-active {
 	background-color: rgb(150, 25, 0);
@@ -151,7 +151,7 @@ li {
 .btn {
 	padding: 0.5em;
 	border-radius: 8px;
-	background: #fff;
+	background-color: #fff;
 	color: var(--background-color);
 	cursor: pointer;
 	text-align: center;
@@ -159,10 +159,11 @@ li {
 	text-decoration: none;
 }
 .btn:hover {
-	background: #ccf;
+	background-color: #ccf;
 }
 .header-logo {
-	font-weight: 600;
+	font-weight: 700;
+	font-family: "Roboto", sans-serif;
 	color: inherit;
 	text-decoration: none;
 	font-size: 1.7em;
@@ -172,21 +173,19 @@ li {
 }
 #page-header {
 	text-align: center;
-	margin: var(--vertical-padding) auto;
 	color: #fff;
 }
 #contact-form {
 	max-width: 42rem;
-	margin: var(--vertical-padding) auto;
 }
 #contact-form > label {
 	display: block;
-	width: 100%;
 	max-width: 42rem;
 	margin: 0 0 var(--horizontal-padding);
 }
 input, textarea {
 	display: block;
+	box-sizing: border-box;
 	width: 100%;
 	padding: 8px;
 	border-radius: 8px;
@@ -212,65 +211,62 @@ input, textarea {
 #portfolio {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: repeat(auto-fit, 100%);
-	grid-gap: 2rem;
-	margin: var(--vertical-padding) 0;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 24rem));
+	grid-gap: 4rem;
+	margin-bottom: 4rem;
 }
 #portfolio > .card {
 	text-align: center;
 	margin: 0;
 }
-#portfolio > .card > .card-desc {
+#portfolio > .card > .card-content {
 	height: 4rem;
 }
 .portfolio-item-image {
 	max-width: 100%;
 	height: auto;
+	border-radius: 8px;
 }
 .card-links {
 	margin: 16px 0;
 }
-.card-links > li {
+.card-link-container {
 	display: inline-block;
 	margin: 0 16px;
 }
 .card-link {
 	text-decoration: none;
 }
-@media screen and (min-width: 45rem) {
+@media screen and (min-width: 56rem) {
 	body {
 		--nav-bar-height: 3rem;
 		--horizontal-padding: 2rem;
-		--vertical-padding: 3rem;
 	}
 	.flex-container {
 		flex-direction: row;
 	}
-	.flex-container > li {
-		margin: 0 1em;
+	.card-content {
+		margin: 0 1rem 2rem;
 	}
 	.card {
-		margin: 4rem 0;
-		padding: 4em 1em;
+		margin: 4rem auto;
+		padding: 2rem;
+		max-width: none;
 	}
-	#hero-content {
-		font-size: 2em;
+	#hero {
 		text-align: left;
 	}
-	#front-message {
+	#hero-message {
 		position: absolute;
 		z-index: 1;
 	}
 	#get-started-btn-bottom {
 		width: 50%;
-	}
-	#portfolio {
-		grid-template-columns: repeat(auto-fit, 400px);
-		grid-gap: 4rem;
-		margin-bottom: 4rem;
+		max-width: none;
 	}
 	#main-img {
 		margin-top: 4em;
+		max-width: 50rem;
 	}
 	#header-menu-btn {
 		display: none;
@@ -295,17 +291,5 @@ input, textarea {
 	}
 	.header-nav > .header-logo {
 		display: none;
-	}
-}
-@media screen and (min-width: 65rem) {
-	body {
-		font-size: 1rem;
-	}
-	.flex-container > li {
-		margin: 0 2em;
-	}
-	.card {
-		margin: 4rem 0;
-		padding: 4em 2em;
 	}
 }
