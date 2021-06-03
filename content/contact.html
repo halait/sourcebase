@@ -3,6 +3,27 @@ title: "Contact"
 menu: "main"
 weight: 2
 ---
+<style>
+	#contact-form {
+		max-width: 40rem;
+	}
+	#contact-form > label {
+		display: block;
+		margin-bottom: 1rem;
+		text-align: left;
+	}
+	#send-btn {
+		display: block;
+		width: 100%;
+		color: #fff;
+		background-color: var(--background-color);
+		padding: 1em 0;
+		font-size: 1.1em;
+	}
+	#send-btn:hover {
+		background-color: #14a;
+	}
+</style>
 <form id="contact-form" class="card" method="post" action="https://us-central1-js-physics-game.cloudfunctions.net/receiveMail">
 	<label>Name<input name="name" required type="text"></label>
 	<label>Email Address<input name="email" required type="email"></label>

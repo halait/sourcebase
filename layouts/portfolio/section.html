@@ -1,0 +1,57 @@
+{{ define "main" }}
+	<style>
+		#portfolio {
+			display: grid;
+			justify-content: center;
+			grid-template-columns: repeat(auto-fit, minmax(12rem, 24rem));
+			grid-gap: 4rem;
+			margin-bottom: 4rem;
+		}
+		.card {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.portfolio-item-image, .card-content-wrapper > svg {
+			max-width: 100%;
+			height: auto;
+		}
+		.card-cta {
+			margin: 16px 0;
+		}
+		.card-cta-container {
+			display: inline-block;
+			margin: 0 16px;
+		}
+		.card-cta-a {
+			text-decoration: none;
+		}
+		.card:hover {
+			box-shadow: 0px 4px 6px 4px rgb(0, 0, 0);
+		}
+	</style>
+	<h1 id="page-header">{{ .Title }}</h1>
+	<ul id="portfolio">
+		{{ range $page := .Pages }}
+			<li class="card">
+				<div class='card-content-wrapper'>
+					{{ with .Resources.GetMatch "logo.*" }}
+						{{ if eq .MediaType.SubType "svg" }}
+							{{ .Content | safeHTML }}
+						{{ else }}
+							<img class='portfolio-item-image' src='{{ .RelPermalink }}' alt='{{ $page.Title  }} logo' width='{{ .Width }}' height='{{ .Height }}'>
+						{{ end }}
+					{{ end }}
+					<h3>{{ .Title }}</h3>
+					<div>{{ .Content }}</div>
+				</div>
+				<ul class="card-cta">
+					{{ range .Params.links }}
+						<li class="card-cta-container"><a class="card-cta-a" href="{{ .href }}" target="_blank" rel="noreferrer noopener">{{ .text }}</a></li>
+					{{ end }}
+				</ul>
+			</li>
+		{{ end }}
+	</ul>
+{{ end }}
