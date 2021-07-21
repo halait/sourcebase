@@ -52,6 +52,12 @@ input, textarea {
 textarea {
 	resize: vertical;
 }
+.flex-item {
+	padding: 2rem 0;
+}
+.flex-item > h3:first-child {
+	margin-top: 0;
+}
 .card {
 	padding: 1rem;
 	border-radius: 8px;
@@ -188,12 +194,12 @@ footer {
 		justify-content: space-evenly;
 	}
 	.flex-item {
-		margin: 0 2.5rem;
+		padding: 0 2rem;
 		flex: 1;
 	}
 	.card {
 		margin: 4rem auto;
-		padding: 2rem;
+		padding: 3rem;
 	}
 	#hero {
 		text-align: left;
