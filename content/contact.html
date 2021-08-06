@@ -26,9 +26,11 @@ description: "We're ready to help. Find different ways to contact us and get sta
 		background-color: #14a;
 	}
 </style>
-<form id="contact-form" class="card" method="post" action="https://us-central1-js-physics-game.cloudfunctions.net/receiveMail">
+<p id='page-hero'>Have questions or want to get a free estimate? Let's talk.</p>
+<form id="contact-form" class="card" method="post" action="https://us-central1-mailer-704d0.cloudfunctions.net/mail">
 	<label>Name<input name="name" required type="text"></label>
-	<label>Email Address<input name="email" required type="email"></label>
+	<label>Email Address<input name="from" required type="email"></label>
 	<label>How can we help you<textarea name="message" required spellcheck="true" minlength="8" rows="8" cols="32"></textarea></label>
+	<input name="successUrl" value='/thank-you/' type="hidden">
 	<input id="send-btn" class="btn" type="submit" value="Send">
 </form>

@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 		<link rel="stylesheet" href="/styles/main.css">
 		<link rel="icon" type="image/png" href="/images/icon.png">
-		<title>Sourcebase</title>
+		<title>{{ .Title }} - Sourcebase</title>
 		<meta name="google-site-verification" content="cwxbdL28yMr8f7_njaJMntysc_h-TlQh71n8FualssU" />
 		<meta name="description" content="{{ .Description }}">
 	</head>
@@ -18,7 +18,7 @@
 					<line x1="0" y1="90" x2="150" y2="90"></line>
 				</svg>
 			</button>
-			<a class="header-logo" href="/">Sourcebase</a>
+			<a id='site-header-logo' class="header-logo" href="/">Sourcebase</a>
 			<nav class="header-nav">
 				<a class="header-logo nav-tab" href="/">Sourcebase</a>
 				{{ range .Site.Menus.main }}
@@ -29,11 +29,12 @@
 		<main>
 			{{ block "main" . }}{{ end }}
 		</main>
-		<footer>
-			<address>
-				Email Address: <a href="mailto:vigress.info@gmail.com">vigress.info@gmail.com</a><br>
+		<footer id='site-footer'>
+			<address id='footer-address'>
+				Email address: <a href="mailto:info@sourcebase.ca">info@sourcebase.ca</a><br>
 				Phone Number: <a href="tel:+18734082693">1-873-408-2693</a>
 			</address>
+			<a id="footer-logo" href="/">Sourcebase</a>
 		</footer>
 		<script src="/scripts/common.js"></script>
 	</body>
