@@ -41,6 +41,9 @@ main {
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: var(--nav-bar-height) 1rem 0;
+
+	opacity: 0;
+	transition: opacity 0.2s linear;
 }
 input, textarea {
 	display: block;

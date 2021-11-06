@@ -19,3 +19,8 @@ document.addEventListener("scroll", function() {
 	}
 	lastScrollY = scrollY;
 });
+function show() {
+	document.querySelector('main').style.opacity = '1';
+}
+window.addEventListener('load', show);
+setTimeout(show, 3000);
