@@ -4,16 +4,19 @@ menu: "main"
 weight: 2
 description: "We're ready to help. Find different ways to contact us and get started growing your business."
 ---
+<script defer src="https://www.google.com/recaptcha/api.js?render=6LcGzpAjAAAAAOyOoOybGIY4MtNc1U5iG4QggLst"></script>
 <style>
 	#contact-form {
-		max-width: 40rem;
+		max-width: 44rem;
 		margin-top: 0rem;
 	}
-	#contact-form > label {
+
+	#contact-form>label {
 		display: block;
 		margin-bottom: 1rem;
 		text-align: left;
 	}
+
 	#send-btn {
 		display: block;
 		width: 100%;
@@ -21,16 +24,39 @@ description: "We're ready to help. Find different ways to contact us and get sta
 		background-color: var(--background-color);
 		padding: 1em 0;
 		font-size: 1.1em;
+		margin-bottom: 1rem;
 	}
+
 	#send-btn:hover {
 		background-color: #14a;
+	}
+
+	.grecaptcha-badge {
+		visibility: hidden;
 	}
 </style>
 <p id='page-hero'>Have questions or want to get a free estimate? Let's talk.</p>
 <form id="contact-form" class="card" method="post" action="https://us-central1-mailer-704d0.cloudfunctions.net/mail">
 	<label>Name<input name="name" required type="text"></label>
 	<label>Email Address<input name="from" required type="email"></label>
-	<label>How can we help you<textarea name="message" required spellcheck="true" minlength="8" rows="8" cols="32"></textarea></label>
+	<label>How can we help you<textarea name="message" required spellcheck="true" minlength="8" rows="8"
+			cols="32"></textarea></label>
 	<input name="successUrl" value='/thank-you/' type="hidden">
-	<input id="send-btn" class="btn" type="submit" value="Send">
+	<input name="failUrl" value='/contact-failed/' type="hidden">
+	<input id="g-recaptcha-response" name="g-recaptcha-response" value='' type="hidden">
+	<input id="send-btn" type="submit" value="Send">
+	<div class="left-align">
+		This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy
+			Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+	</div>
 </form>
+<script>
+	document.getElementById('contact-form').addEventListener('submit', function(e) {
+		e.preventDefault();
+		grecaptcha.ready(async () => {
+			const token = await grecaptcha.execute('6LcGzpAjAAAAAOyOoOybGIY4MtNc1U5iG4QggLst', { action: 'submit' });
+			document.getElementById("g-recaptcha-response").value = token;
+			document.getElementById('contact-form').submit();
+		});
+	});
+</script>

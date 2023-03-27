@@ -49,8 +49,8 @@ input, textarea {
 	display: block;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 8px;
-	border-radius: 8px;
+	padding: 0.8rem;
+	/* border-radius: 8px; */
 	border: solid 1px #000;
 	margin: 4px 0;
 }
@@ -65,7 +65,7 @@ textarea {
 }
 .card {
 	padding: 1.5rem;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 	background-color: #fff;
 	color: #444;
 	margin: 4rem auto;
@@ -155,7 +155,7 @@ textarea {
 }
 .btn {
 	padding: 0.5em;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 	background-color: #fff;
 	color: var(--background-color);
 	cursor: pointer;
@@ -203,6 +203,9 @@ textarea {
 	color: var(--brand-color);
 	margin-top: 0.5rem;
 	display: block;
+}
+.left-align {
+	text-align: left;
 }
 @media screen and (min-width: 56rem) {
 	body {

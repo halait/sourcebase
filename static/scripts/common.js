@@ -12,7 +12,7 @@ let lastScrollY = window.scrollY;
 let header = document.querySelector("header");
 document.addEventListener("scroll", function() {
 	let scrollY = window.scrollY;
-	if(scrollY < lastScrollY) {
+	if(scrollY < lastScrollY || scrollY < 64) {
 		header.classList.remove("hide-header");
 	} else {
 		header.classList.add("hide-header");
